@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         id="CheckstyleBuilder"
-         name="Checkstyle Builder"
-         point="org.eclipse.core.resources.builders">
-      <builder
-            hasNature="true">
-         <run
-               class="net.sf.eclipsecs.core.builder.CheckstyleBuilder">
-         </run>
-      </builder>
-   </extension>
+
+    <!-- This plugin provides custom Checkstyle modules. -->
+    <extension
+          point="net.sf.eclipsecs.core.checkstyleAddonProvider">
+    </extension>
+
+    <!--
+        Sample builtin check configuration
+    
+    <extension
+        id="checkstyle.CheckConfiguration"
+        point="net.sf.eclipsecs.core.configurations">
+        <check-configuration
+            name="%check-configuration.name"
+            location="sample_checks.xml"
+            description="%check-configuration.description"
+            default-weight="2">
+            <property name="maxLineLength" value="50"/>
+        </check-configuration>
+    </extension>
+
+    
+        Sample checkstyle plugin filter
+    
+    
+    <extension
+        id="checkstyle.CheckstyleFilters"
+        point="net.sf.eclipsecs.core.filters">
+        <filter
+            name="%filter.name"
+            internal-name="SampleFilter"
+            description="%filter.description"
+            class="net.sf.eclipsecs.sample.filter.SampleFilter"/>
+    </extension>
+
+    <extension
+          point="net.sf.eclipsecs.ui.quickfix">
+       <quickfix
+             module="MethodLimit"
+             class="net.sf.eclipsecs.sample.checks.MethodLimitQuickfix"></quickfix>
+    </extension>
+    -->
+    
 </plugin>

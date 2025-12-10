@@ -9,7 +9,7 @@ public class LoopCountCheck extends AbstractCheck {
 
 	@Override
     public int[] getDefaultTokens() {
-		// Check for all loop types: for, while, and do-while
+		// Check for loop types: for, while, and do-while
 		return new int[] {
         		TokenTypes.LITERAL_FOR,
         		TokenTypes.LITERAL_WHILE,
@@ -29,18 +29,19 @@ public class LoopCountCheck extends AbstractCheck {
 
     @Override
     public void beginTree(DetailAST rootAST) {
+    	// Reset counter for new file
     	loopCount=0;
     }
 
     @Override
     public void visitToken(DetailAST ast) {
-    	// Increment the counter for every loop found
+    	// Increment counter for found loops
     	loopCount++;
     }
 
     @Override
     public void finishTree(DetailAST rootAST) {
-    	// Log the total count when done processing the file
+    	// Log the total count when done
     	log(rootAST.getLineNo(), "Loop count: " + loopCount);
     }
 	

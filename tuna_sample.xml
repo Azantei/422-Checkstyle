@@ -11,16 +11,28 @@
 
     <module name="TreeWalker">
 
-        <module name="CommentCount">
-            <message key="CommentCount" value="Man" />
+        <module name="CommentCountCheck">
+            <message key="CommentCountCheck" value="Man" />
         </module>
         
-        <module name="LoopCount">
-            <message key="loopCount" value="Man" />
+        <module name="LoopCountCheck">
+            <message key="loopCountCheck" value="Man" />
         </module>
         
-        <module name="CommentLineCounter">
-            <message key="CommentLineCounter" value="Man" />
+        <module name="CommentLineCountCheck">
+            <message key="CommentLineCountCheck" value="Man" />
+        </module>
+        
+         <module name="ExpressionCountCheck">
+            <message key="ExpressionCountCheck" value="Man" />
+        </module>
+        
+         <module name="OperandCountCheck">
+            <message key="OperandCountCheck" value="Man" />
+        </module>
+        
+         <module name="OperatorCountCheck">
+            <message key="OperatorCountCheck" value="Man" />
         </module>
         
     </module>

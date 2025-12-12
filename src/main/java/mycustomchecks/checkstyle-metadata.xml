@@ -6,19 +6,34 @@
     <rule-group-metadata name="Camille Checks" priority="1600">
         <description>%MyCustomChecks.desc</description>
         
-        <rule-metadata name="%CommentCount.name" internal-name="CommentCount" parent="TreeWalker">
+        <rule-metadata name="%CommentCountCheck.name" internal-name="CommentCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.CommentCountCheck" />
             <description>%CommentCount.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="%LoopCount.name" internal-name="LoopCount" parent="TreeWalker">
+        <rule-metadata name="%LoopCountCheck.name" internal-name="LoopCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.LoopCountCheck" />
-            <description>%LoopCount.desc</description>
+            <description>%LoopCountCheck.desc</description>
         </rule-metadata>
         
         <rule-metadata name="%CommentLineCountCheck.name" internal-name="CommentLineCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.CommentLineCountCheck" />
-            <description>%LoopCount.desc</description>
+            <description>%CommentLineCountCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%ExpressionCountCheck.name" internal-name="ExpressionCountCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.ExpressionCountCheck" />
+            <description>%ExpressionCountCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%OperandCountCheck.name" internal-name="OpoerandCountCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.OperandCountCheck" />
+            <description>%OperandCountCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%OperatorCountCheck.name" internal-name="OperatorCountCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.OperatorCountCheck" />
+            <description>%OperatorCountCheck.desc</description>
         </rule-metadata>
         
     </rule-group-metadata>

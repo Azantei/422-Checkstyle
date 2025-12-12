@@ -16,5 +16,10 @@
             <description>%LoopCount.desc</description>
         </rule-metadata>
         
+        <rule-metadata name="%CommentLineCountCheck.name" internal-name="CommentLineCountCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.CommentLineCountCheck" />
+            <description>%LoopCount.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>

@@ -12,10 +12,16 @@
     <module name="TreeWalker">
 
         <module name="CommentCount">
-            <message key="commentCount" value="Man" />
+            <message key="CommentCount" value="Man" />
         </module>
+        
         <module name="LoopCount">
             <message key="loopCount" value="Man" />
         </module>
+        
+        <module name="CommentLineCounter">
+            <message key="CommentLineCounter" value="Man" />
+        </module>
+        
     </module>
 </module>

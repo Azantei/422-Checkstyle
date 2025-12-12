@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This configuration file was written by the eclipse-cs plugin configuration editor -->
+<!-- Checkstyle-Configuration: Test Description: none -->
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Check Configuration 1.3//EN" "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <property name="severity" value="warning" />
+
+    <module name="Header">
+        <property name="headerFile" value="${config_loc}/java.header" />
+    </module>
+
+    <module name="TreeWalker">
+
+        <module name="CommentCount">
+            <message key="commentCount" value="Man" />
+        </module>
+        <module name="LoopCount">
+            <message key="loopCount" value="Man" />
+        </module>
+    </module>
+</module>

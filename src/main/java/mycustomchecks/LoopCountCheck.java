@@ -42,7 +42,7 @@ public class LoopCountCheck extends AbstractCheck {
     @Override
     public void finishTree(DetailAST rootAST) {
     	// Log the total count when done
-    	log(rootAST.getLineNo(), "Loop count: " + loopCount + "- C.O.");
+    	log(rootAST.getLineNo(), "Loop count: " + loopCount + " - C.O.");
     }
 	
 }

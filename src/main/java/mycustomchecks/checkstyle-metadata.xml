@@ -26,7 +26,7 @@
             <description>%ExpressionCountCheck.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="OperandCountCheck.name" internal-name="OpoerandCountCheck" parent="TreeWalker">
+        <rule-metadata name="OperandCountCheck.name" internal-name="OperandCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.OperandCountCheck" />
             <description>%OperandCountCheck.desc</description>
         </rule-metadata>

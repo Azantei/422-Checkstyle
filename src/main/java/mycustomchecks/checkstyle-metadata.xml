@@ -36,5 +36,15 @@
             <description>%OperatorCountCheck.desc</description>
         </rule-metadata>
         
+        <rule-metadata name="HalsteadLengthCheck.name" internal-name="HalsteadLengthCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.HalsteadLengthCheck" />
+            <description>%HalsteadLengthCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="HalsteadVolumeCheck.name" internal-name="HalsteadVolumeCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.HalsteadVolumeCheck" />
+            <description>%HalsteadVolumeCheck.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>

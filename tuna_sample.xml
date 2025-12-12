@@ -35,5 +35,13 @@
             <message key="OperatorCountCheck" value="Man" />
         </module>
         
+        <module name="HalsteadLengthCheck">
+            <message key="HalsteadLengthCheck" value="Man" />
+        </module>
+        
+        <module name="HalsteadVolumeCheck">
+            <message key="HalsteadVolumeCheck" value="Man" />
+        </module>
+        
     </module>
 </module>

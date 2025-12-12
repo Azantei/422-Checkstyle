@@ -4,34 +4,34 @@
 "https://checkstyle.org/eclipse-cs/dtds/checkstyle-metadata_1_1.dtd">
 <checkstyle-metadata>
     <rule-group-metadata name="Camille Checks" priority="1600">
-        <description>%MyCustomChecks.desc</description>
+        <description>%\MyCustomChecks.desc</description>
         
-        <rule-metadata name="%CommentCountCheck.name" internal-name="CommentCountCheck" parent="TreeWalker">
+        <rule-metadata name="CommentCountCheck.name" internal-name="CommentCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.CommentCountCheck" />
             <description>%CommentCount.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="%LoopCountCheck.name" internal-name="LoopCountCheck" parent="TreeWalker">
+        <rule-metadata name="LoopCountCheck.name" internal-name="LoopCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.LoopCountCheck" />
             <description>%LoopCountCheck.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="%CommentLineCountCheck.name" internal-name="CommentLineCountCheck" parent="TreeWalker">
+        <rule-metadata name="CommentLineCountCheck.name" internal-name="CommentLineCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.CommentLineCountCheck" />
             <description>%CommentLineCountCheck.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="%ExpressionCountCheck.name" internal-name="ExpressionCountCheck" parent="TreeWalker">
+        <rule-metadata name="ExpressionCountCheck.name" internal-name="ExpressionCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.ExpressionCountCheck" />
             <description>%ExpressionCountCheck.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="%OperandCountCheck.name" internal-name="OpoerandCountCheck" parent="TreeWalker">
+        <rule-metadata name="OperandCountCheck.name" internal-name="OpoerandCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.OperandCountCheck" />
             <description>%OperandCountCheck.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="%OperatorCountCheck.name" internal-name="OperatorCountCheck" parent="TreeWalker">
+        <rule-metadata name="OperatorCountCheck.name" internal-name="OperatorCountCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.OperatorCountCheck" />
             <description>%OperatorCountCheck.desc</description>
         </rule-metadata>

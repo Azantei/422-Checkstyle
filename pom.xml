@@ -4,6 +4,7 @@
   <artifactId>422-Checkstyle</artifactId>
   <version>0.0.1-SNAPSHOT</version>
     
+  <!-- is it my build!? -->
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>

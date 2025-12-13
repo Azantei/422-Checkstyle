@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>OperandCountTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">mycustomchecks (Dec 12, 2025 5:07:35 PM)</a> &gt; <a href="../../index.html" class="el_group">422-Checkstyle</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">mycustomchecks</a> &gt; <span class="el_source">OperandCountTest.java</span></div><h1>OperandCountTest.java</h1><pre class="source lang-java linenums">package mycustomchecks;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+
+<span class="fc" id="L13">public class OperandCountTest {</span>
+    
+    private OperandCountCheck testCheck;
+    private DetailAST mockAST;
+
+    @BeforeEach
+    public void setUp() {
+<span class="fc" id="L20">        testCheck = spy(new OperandCountCheck());</span>
+<span class="fc" id="L21">        mockAST = mock(DetailAST.class);</span>
+<span class="fc" id="L22">        when(mockAST.getLineNo()).thenReturn(1);</span>
+<span class="fc" id="L23">        testCheck.beginTree(mockAST);</span>
+<span class="fc" id="L24">    }</span>
+
+    @Test
+    public void testGetDefaultTokens() {
+<span class="fc" id="L28">        int[] defaultTokens = testCheck.getDefaultTokens();</span>
+<span class="fc" id="L29">        int[] expectedTokens = HalsteadTokenTypes.halsteadOperands.stream()</span>
+<span class="fc" id="L30">                .mapToInt(Integer::intValue)</span>
+<span class="fc" id="L31">                .toArray();</span>
+<span class="fc" id="L32">        assertArrayEquals(expectedTokens, defaultTokens);</span>
+<span class="fc" id="L33">    }</span>
+
+    @Test
+    public void testGetAcceptableTokens() {
+<span class="fc" id="L37">        int[] acceptableTokens = testCheck.getAcceptableTokens();</span>
+<span class="fc" id="L38">        int[] expectedTokens = HalsteadTokenTypes.halsteadOperands.stream()</span>
+<span class="fc" id="L39">                .mapToInt(Integer::intValue)</span>
+<span class="fc" id="L40">                .toArray();</span>
+<span class="fc" id="L41">        assertArrayEquals(expectedTokens, acceptableTokens);</span>
+<span class="fc" id="L42">    }</span>
+
+    @Test
+    public void testGetRequiredTokens() {
+<span class="fc" id="L46">        assertArrayEquals(new int[0], testCheck.getRequiredTokens());</span>
+<span class="fc" id="L47">    }</span>
+
+    @Test
+    public void testBeginTree() {
+<span class="fc" id="L51">        verify(testCheck).beginTree(mockAST);</span>
+<span class="fc" id="L52">    }</span>
+
+    @Test
+    public void testVisitToken() {
+<span class="fc" id="L56">        when(mockAST.getType()).thenReturn(TokenTypes.NUM_INT);</span>
+<span class="fc" id="L57">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L58">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L59">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L60">        verify(testCheck, times(3)).visitToken(mockAST);</span>
+<span class="fc" id="L61">    }</span>
+
+    @Test
+    public void testFinishTree() {
+        // Add 5 operands
+<span class="fc" id="L66">        when(mockAST.getType()).thenReturn(TokenTypes.NUM_INT);</span>
+<span class="fc" id="L67">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L68">        when(mockAST.getType()).thenReturn(TokenTypes.IDENT);</span>
+<span class="fc" id="L69">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L70">        when(mockAST.getType()).thenReturn(TokenTypes.STRING_LITERAL);</span>
+<span class="fc" id="L71">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L72">        when(mockAST.getType()).thenReturn(TokenTypes.NUM_DOUBLE);</span>
+<span class="fc" id="L73">        testCheck.visitToken(mockAST);</span>
+<span class="fc" id="L74">        when(mockAST.getType()).thenReturn(TokenTypes.LITERAL_TRUE);</span>
+<span class="fc" id="L75">        testCheck.visitToken(mockAST);</span>
+        
+<span class="fc" id="L77">        when(mockAST.getLineNo()).thenReturn(1);</span>
+<span class="fc" id="L78">        doNothing().when(testCheck).log(anyInt(), anyString());</span>
+<span class="fc" id="L79">        testCheck.finishTree(mockAST);</span>
+        
+        // Verify log was called with count of 5
+<span class="fc" id="L82">        verify(testCheck).log(eq(1), contains(&quot;5&quot;));</span>
+<span class="fc" id="L83">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span>mycustomchecks (Dec 12, 2025 5:07:35 PM)</div></body></html>

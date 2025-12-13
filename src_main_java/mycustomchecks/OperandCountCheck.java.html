@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>OperandCountCheck.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">mycustomchecks (Dec 12, 2025 5:07:35 PM)</a> &gt; <a href="../../index.html" class="el_group">422-Checkstyle</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">mycustomchecks</a> &gt; <span class="el_source">OperandCountCheck.java</span></div><h1>OperandCountCheck.java</h1><pre class="source lang-java linenums">package mycustomchecks;
+
+import com.puppycrawl.tools.checkstyle.api.*;
+
+<span class="fc" id="L5">public class OperandCountCheck extends AbstractCheck {</span>
+
+    private int operandCount;
+
+    @Override
+    public void beginTree(DetailAST rootAST) {
+        // Reset counter for new file
+<span class="fc" id="L12">        operandCount = 0;</span>
+<span class="fc" id="L13">    }</span>
+
+    @Override
+    public void visitToken(DetailAST ast) {
+        // Increment count for each operand found
+<span class="fc" id="L18">        operandCount++;</span>
+<span class="fc" id="L19">    }</span>
+
+    @Override
+    public int[] getDefaultTokens() {
+        // Convert the operand token set to an int array
+<span class="fc" id="L24">        return HalsteadTokenTypes.halsteadOperands.stream()</span>
+<span class="fc" id="L25">                .mapToInt(Integer::intValue)</span>
+<span class="fc" id="L26">                .toArray();</span>
+    }
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="fc" id="L31">        return getDefaultTokens();</span>
+    }
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="fc" id="L36">        return new int[0];</span>
+    }
+    
+    @Override
+    public void finishTree(DetailAST rootAST) {
+        // Log the total count when done
+<span class="fc" id="L42">        log(rootAST.getLineNo(), &quot;Operand count: &quot; + operandCount + &quot; - C.O.&quot;);</span>
+<span class="fc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span>mycustomchecks (Dec 12, 2025 5:07:35 PM)</div></body></html>

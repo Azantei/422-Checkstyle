@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CommentCountCheck.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">mycustomchecks (Dec 12, 2025 5:07:35 PM)</a> &gt; <a href="../../index.html" class="el_group">422-Checkstyle</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">mycustomchecks</a> &gt; <span class="el_source">CommentCountCheck.java</span></div><h1>CommentCountCheck.java</h1><pre class="source lang-java linenums">package mycustomchecks;
+
+import com.puppycrawl.tools.checkstyle.api.*;
+
+
+<span class="nc" id="L6">public class CommentCountCheck extends AbstractCheck {</span>
+	
+	private int commentCount;
+
+	@Override
+    public int[] getDefaultTokens() {
+<span class="nc" id="L12">        return new int[] {</span>
+        		// Look for comment content tokens
+<span class="nc" id="L14">        		TokenTypes.COMMENT_CONTENT };</span>
+        };
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="nc" id="L19">        return getDefaultTokens();</span>
+    }
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="nc" id="L24">        return new int[0];</span>
+    }
+
+    @Override
+    public boolean isCommentNodesRequired() {
+<span class="nc" id="L29">        return true;</span>
+    }
+    
+    @Override
+    public void beginTree(DetailAST rootAST) {
+    		// Reset counter for new file
+<span class="nc" id="L35">        commentCount = 0;</span>
+<span class="nc" id="L36">    }</span>
+
+    @Override
+    public void visitToken(DetailAST ast) {
+    		// Increment counter for found comments
+<span class="nc" id="L41">        commentCount++;</span>
+<span class="nc" id="L42">    }</span>
+
+    @Override
+    public void finishTree(DetailAST rootAST) {
+    	// Log the total count when done
+<span class="nc" id="L47">    	log(rootAST.getLineNo(), &quot;Comment count: &quot; + commentCount + &quot; - C.O.&quot;);</span>
+<span class="nc" id="L48">    }</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span>mycustomchecks (Dec 12, 2025 5:07:35 PM)</div></body></html>

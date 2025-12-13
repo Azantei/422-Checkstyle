@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>HalsteadLengthCheck.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">mycustomchecks (Dec 12, 2025 5:07:35 PM)</a> &gt; <a href="../../index.html" class="el_group">422-Checkstyle</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">mycustomchecks</a> &gt; <span class="el_source">HalsteadLengthCheck.java</span></div><h1>HalsteadLengthCheck.java</h1><pre class="source lang-java linenums">package mycustomchecks;
+
+import com.puppycrawl.tools.checkstyle.api.*;
+
+<span class="fc" id="L5">public class HalsteadLengthCheck extends AbstractCheck {</span>
+
+    private int halsteadLength;
+
+    @Override
+    public void beginTree(DetailAST rootAST) {
+        // Reset counter for new file
+<span class="fc" id="L12">        halsteadLength = 0;</span>
+<span class="fc" id="L13">    }</span>
+
+    @Override
+    public void visitToken(DetailAST ast) {
+        // Count each operator and operand
+<span class="fc" id="L18">        halsteadLength++;</span>
+<span class="fc" id="L19">    }</span>
+
+    @Override
+    public int[] getDefaultTokens() {
+        // Return combined operators and operands
+<span class="fc" id="L24">        return HalsteadTokenTypes.getCombinedSets();</span>
+    }
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="fc" id="L29">        return getDefaultTokens();</span>
+    }
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="fc" id="L34">        return new int[0];</span>
+    }
+    
+    @Override
+    public void finishTree(DetailAST rootAST) {
+        // Log the total Halstead length when done
+<span class="fc" id="L40">        log(rootAST.getLineNo(), &quot;Halstead Length: &quot; + halsteadLength + &quot; - C.O.&quot;);</span>
+<span class="fc" id="L41">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span>mycustomchecks (Dec 12, 2025 5:07:35 PM)</div></body></html>

@@ -47,5 +47,9 @@
             <message key="HalsteadDifficultyCheck" value="Man" />
         </module>
         
+        <module name="HalsteadVocabularyCheck">
+            <message key="HalsteadVocabularyCheck" value="Man" />
+        </module>
+        
     </module>
 </module>

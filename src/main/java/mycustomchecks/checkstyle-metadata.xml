@@ -46,9 +46,14 @@
             <description>%HalsteadVolumeCheck.desc</description>
         </rule-metadata>
         
-        <rule-metadata name="HalsteadDifficultyCheck.name" internal-name="HalsteadVDifficultyCheck" parent="TreeWalker">
+        <rule-metadata name="HalsteadDifficultyCheck.name" internal-name="HalsteadDifficultyCheck" parent="TreeWalker">
             <alternative-name internal-name="mycustomchecks.HalsteadDifficultyCheck" />
             <description>%HalsteadDifficultyCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="HalsteadVocabularyCheck.name" internal-name="HalsteadVocabularyCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.HalsteadVocabularyCheck" />
+            <description>%HalsteadVocabularyCheck.desc</description>
         </rule-metadata>
         
     </rule-group-metadata>

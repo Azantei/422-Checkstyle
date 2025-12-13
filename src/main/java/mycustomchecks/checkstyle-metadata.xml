@@ -56,5 +56,10 @@
             <description>%HalsteadVocabularyCheck.desc</description>
         </rule-metadata>
         
+        <rule-metadata name="HalsteadEffortCheck.name" internal-name="HalsteadEffortCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.HalsteadEffortCheck" />
+            <description>%HalsteadEffortCheck.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>

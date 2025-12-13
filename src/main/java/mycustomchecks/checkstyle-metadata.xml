@@ -46,5 +46,10 @@
             <description>%HalsteadVolumeCheck.desc</description>
         </rule-metadata>
         
+        <rule-metadata name="HalsteadDifficultyCheck.name" internal-name="HalsteadVDifficultyCheck" parent="TreeWalker">
+            <alternative-name internal-name="mycustomchecks.HalsteadDifficultyCheck" />
+            <description>%HalsteadDifficultyCheck.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>

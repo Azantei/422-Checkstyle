@@ -43,5 +43,9 @@
             <message key="HalsteadVolumeCheck" value="Man" />
         </module>
         
+        <module name="HalsteadDifficultyCheck">
+            <message key="HalsteadDifficultyCheck" value="Man" />
+        </module>
+        
     </module>
 </module>
